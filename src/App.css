@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background: rgba(173, 255, 47, 0.5);
+  margin: 0;
+  padding: 0;
+  font-family: 'inconsolata', monospace;
+}
+
+.timer > span {
+  font-size: 5rem;
+}
+
+.container > button, .control-panel > button {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+}
+
+.container > button:hover, .control-panel > button:hover {
+  border: 1px solid rgba(69, 116, 0, 0.1);
+  background-color: rgba(0, 255, 127, 0.5);
+}
+
+.container > button:disabled:hover, .control-panel > button:disabled:hover {
+  border: 1px solid rgba(69, 116, 0, 0.1);
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.container > button:focus, .control-panel > button:focus  {
+  outline: none;
+}
+
+.container {
+  margin-top: 40px;
+  height: 100%;
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: 5px 80px 20px 1fr;
+  grid-template-areas: 
+      "h h"
+      "t t"
+      "t t"
+      "s r";
+}
+
+#timer-label {
+  grid-area: h;
+}
+
+.timer {
+  grid-area: t;
+}
+
+.start-button {
+  grid-area: s;
+}
+
+.stop-button {
+  grid-area: s;
+}
+
+.reset-button {
+  grid-area: r;
+}
+
+.control-panel > button, .control-panel > #break-length, .control-panel > #session-length {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+}
+
+.control-panel {
+  height: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(6, 0.5fr);
+  grid-template-rows: 70px 20px 45px;
+  grid-template-areas: 
+      "h1 h1 h1 h1 h1 h1"
+      "sh sh sh bh bh bh"
+      "sb1 v1 sb2 bb1 v2 bb2";
+}
+
+.control-panel > h1 {
+  grid-area: h1;
+}
+
+#session-label {
+  grid-area: sh;
+}
+
+#break-label {
+  grid-area: bh;
+}
+
+#session-decrement {
+  grid-area: sb1;
+}
+
+#session-increment {
+  grid-area: sb2;
+}
+
+#break-decrement {
+  grid-area: bb1;
+}
+
+#break-increment {
+  grid-area: bb2;
+}
+
+#session-length {
+  grid-area: v1;
+}
+
+#break-length {
+  grid-area: v2;
+}
